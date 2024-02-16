@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       apiBase:'http://localhost:8000/api'
     }
   },
+  modules:['@formkit/nuxt'],
   app:{
     head:{
       meta: [

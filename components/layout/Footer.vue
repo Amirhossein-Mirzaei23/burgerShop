@@ -9,24 +9,24 @@
                         تماس با ما
                     </h4>
                     <div class="contact_link_box">
-                        <a href="">
+                        <a href="/contactUs">
                             <i class="bi bi-geo-alt-fill"></i>
                             <span>
                                 آدرس
                             </span>
                         </a>
-                        <a href="">
+                        <a href="/contactUs">
                             <div class="d-flex justify-content-center">
                                 <i class="bi bi-telephone-fill" aria-hidden="true"></i>
                                 <p class="my-0" style="direction: ltr;">
-                                    0910 000 0000
+                                    09338262657
                                 </p>
                             </div>
                         </a>
-                        <a href="">
+                        <a href="/contactUs">
                             <i class="bi bi-envelope-fill"></i>
                             <span>
-                                demo@gmail.com
+                                Amirhmirzaei@gmail.com
                             </span>
                         </a>
                     </div>
@@ -35,7 +35,7 @@
             <div class="col-md-4 footer-col">
                 <div class="footer_detail">
                     <a href="" class="footer-logo">
-                        webprog.io
+                        fOOD Bar
                     </a>
                     <p>
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
