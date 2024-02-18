@@ -2,12 +2,12 @@
  <NuxtLayout name="profile">
 <NuxtPage />
  </NuxtLayout>
+ <h1>profile page</h1>
 </template>
 
 <script setup>
-definePageMeta({
-    middleware:'auth',
-})
+
+console.log("profile page");
 </script>
 
 <style lang="scss" scoped>
