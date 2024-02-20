@@ -12,13 +12,13 @@
               <NuxtLink to="/profile/addresses">آدرس ها</NuxtLink>
             </li>
             <li class="list-group-item">
-              <NuxtLink to="/profile">سفارشات</NuxtLink>
+              <NuxtLink to="/profile/orders">سفارشات</NuxtLink>
             </li>
             <li class="list-group-item">
-              <NuxtLink to="/profile">تراکنش ها</NuxtLink>
+              <NuxtLink to="/profile/transaction">تراکنش ها</NuxtLink>
             </li>
             <li class="list-group-item">
-              <a href="#">خروج</a>
+              <button @click="logOut" href="#">خروج</button>
             </li>
           </ul>
         </div>
@@ -31,6 +31,28 @@
   <!---profile layout end-->
 </template>
 
-<script setup></script>
+<script setup>
+
+const { authUser }=useAuth()
+
+async function logOut(){
+try {
+  await $fetch('/api/auth/logout', {
+    method:'POST'
+  })
+
+  authUser.value=''
+  toastr.warning('از سیستم خارج شدید')
+
+  return navigateTo('/')
+} catch (error) {
+  console.log(error);
+  toastr.error('از سیستم خارج نشدید')
+}
+}
+
+authUser
+
+</script>
 
 <style lang="scss" scoped></style>

@@ -1,12 +1,12 @@
 export default defineEventHandler(async (event) => {
-    const body = await readBody(event)
+
     const { public: { apiBase } } = useRuntimeConfig();
     const token = getCookie(event, 'token');
+    const query = getQuery(event);
 
     try {
-        const data = await $fetch(`${apiBase}/profile/info/edit`, {
-            method: 'POST',
-            body: body,
+        const data = await $fetch(`${apiBase}/profile/orders`, {
+            query: query,
             headers: {
                 'Accept': 'application/json',
                 'Authorization': `Bearer ${token}`

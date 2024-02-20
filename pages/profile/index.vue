@@ -1,7 +1,7 @@
 <template>
     <div class="vh-70">
         <!-- a div to show erorrs--->
-        <div v-if="errors > 0" class="alert alert-danger">
+        <div v-if="errors.length > 0" class="alert alert-danger">
             <ul class="mb-0">
                 <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
             </ul>
@@ -56,15 +56,18 @@ console.log(user.value);
 
 
 let loading=ref(false)
-let erorrs=ref(null)
+const errors = ref([]);
+
+
+/// create a function to edit user info
 async function profileUserEdit(formData){
 
 
-
+console.log(formData.name);
     try {
         loading.value=true
        
-     await $fetch(`/api/profile/edit`,{
+     await $fetch(`/api/profile/info/edit`,{
         method:"POST",
         body:formData,
     })
@@ -72,9 +75,9 @@ async function profileUserEdit(formData){
          toastr.success('ویرایش با موفیقت انجام شد')
         
     } catch (error) {
-         erorrs.value=Object.values(error.data.data.message).flat()
+         errors.value=Object.values(error.data.data.message).flat()
      
-         toastr.error(`Erorr Message: ${error.data.statusMessage}`)
+
          toastr.error(`Erorr Code: ${error.data.statusCode}`)
     }finally{
         loading.value=false
