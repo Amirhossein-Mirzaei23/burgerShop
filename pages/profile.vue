@@ -2,7 +2,6 @@
  <NuxtLayout name="profile">
 <NuxtPage />
  </NuxtLayout>
- <h1>profile page</h1>
 </template>
 
 <script setup>

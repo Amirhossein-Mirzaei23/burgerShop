@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
     const token = getCookie(event, 'token');
 
     try {
-        const data = await $fetch(`${apiBase}/profile/info/edit`, {
+        const data = await $fetch(`${apiBase}/profile/addresses/edit`, {
             method: 'POST',
             body: body,
             headers: {

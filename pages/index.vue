@@ -13,7 +13,7 @@ import feathures from '~/components/feathures.vue';
 import productTab from '~/components/ProductTab.vue';
 
 const {public:{apiBase}}=useRuntimeConfig();
-const {data, error}= await useFetch(`${apiBase}/products/products-tabs`)
+ const {data, error}= await useFetch(`${apiBase}/products/products-tabs`)
 
 
 </script>

@@ -9,7 +9,7 @@
             </div>
             <Tabs nav-class="filters_menu" nav-item-active-class="active" :options="{ disableScrollBehavior: true }">
              
-             <Tab v-for="(tabList,index) in Products.data.tabList" :key="index" :name="tabList">
+                <Tab v-for="(tabList,index) in Products.data.tabList" :key="index" :name="tabList">
                    {{ tabList }}
                    <div class="filters_content">
                     <div class="row grid">
@@ -82,7 +82,7 @@
 
 const {public:{apiBase}}=useRuntimeConfig();
 const {data:Products, error}= await useFetch(`${apiBase}/products/products-tabs`)
-console.log(Products._rawValue.data.tabList);
+ console.log(Products._rawValue);
 
 </script>
 

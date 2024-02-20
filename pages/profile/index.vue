@@ -48,7 +48,7 @@
 
 
 
-const {data:user}= await useFetch(`/api/profile/info`,{
+   const {data:user}= await useFetch(`/api/profile/info`,{
    // headers:useRequestHeader(['cookie'])
 })
 
@@ -56,25 +56,26 @@ console.log(user.value);
 
 
 let loading=ref(false)
-let erorrs=ref[null]
+let erorrs=ref(null)
 async function profileUserEdit(formData){
 
 
 
     try {
         loading.value=true
-        erorrs.value=[]
-    
-        userInfo.value=formData
-        console.log(formData);
-     await useFetch(`/api/profile/info/edit`,{
+       
+     await $fetch(`/api/profile/edit`,{
         method:"POST",
         body:formData,
     })
-console.log("done");
+
          toastr.success('ویرایش با موفیقت انجام شد')
+        
     } catch (error) {
-        erorrs.value=Object.values(error.data.data.message).flat()
+         erorrs.value=Object.values(error.data.data.message).flat()
+     
+         toastr.error(`Erorr Message: ${error.data.statusMessage}`)
+         toastr.error(`Erorr Code: ${error.data.statusCode}`)
     }finally{
         loading.value=false
     }
