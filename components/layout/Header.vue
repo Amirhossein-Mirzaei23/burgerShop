@@ -31,12 +31,14 @@
                         </li>
                     </ul>
                     <div class="user_option">
-                        <a class="cart_link position-relative" href="cart.html">
+                        <nuxt-link class="cart_link position-relative"  to="/cart">
                             <i class="bi bi-cart-fill text-white fs-5"></i>
+                         <client-only>
                             <span class="position-absolute top-0 translate-middle badge rounded-pill">
-                                3
+                                {{ countCartItem }}
                             </span>
-                        </a>
+                         </client-only>
+                        </nuxt-link>
                         <nuxt-link v-if="authUser"  to="/profile">
                             <button href="login.html" class="btn-auth">
                              {{ authUser.name }}
@@ -57,8 +59,11 @@
 </template>
 
 <script setup>
-
+import {useCartStore} from '../../store/cart.js'
+const cart=useCartStore()
 const {authUser}=useAuth()
+
+const countCartItem = computed(()=> cart.count )
 </script>
 
 <style  scoped>

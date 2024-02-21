@@ -10,7 +10,7 @@ export default defineNuxtConfig({
       apiBase:'http://localhost:8000/api'
     }
   },
-  modules:['@formkit/nuxt'],
+  modules:['@formkit/nuxt' ,'@pinia/nuxt' ,'@pinia-plugin-persistedstate/nuxt',],
   app:{
     head:{
       meta: [
