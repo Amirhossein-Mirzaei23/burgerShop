@@ -59,6 +59,8 @@ async function checkOtp() {
         toastr.success('با موفقیت وارد شدید')
        
         authUser.value=data
+        toastr.success("باموفقیت وارد شدید");
+        return navigateTo('/')
     } catch (error) {
         errors.value = Object.values(error.data.data.message).flat();
     } finally {

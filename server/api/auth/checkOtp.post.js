@@ -27,7 +27,6 @@ export default defineEventHandler(async (event) => {
         })
 
         return data.data.user;
-
     } catch (error) {
         return error;
     }

@@ -1,10 +1,10 @@
 <template>
      <!-- header section strats -->
     <header class="header_section">
-        <div class="container">
+        <div class="custom-container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="index.html">
-                    <span>
+                <a class="navbar-brand">
+                    <span class="mr-5 bg-slate-50">
                         fOOd Bar
                     </span>
                 </a>
@@ -15,19 +15,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
+                <div class="custom-collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto animate__animated animate__slower animate__backInUp">
                         <li class="nav-item" :class="{ active: $route.path==='/'}">
-                            <nuxt-link to="/"><a class="nav-link" href="index.html">صفحه اصلی</a></nuxt-link>
+                            <nuxt-link to="/"><a class="nav-link animate__animated animate__slower animate__backInUp" href="index.html">صفحه اصلی</a></nuxt-link>
                         </li>
                         <li class="nav-item" >
-                            <nuxt-link to="/menu"><a class="nav-link" href="/menu">منو</a></nuxt-link>
+                            <nuxt-link to="/menu"><a class="nav-link animate__animated animate__delay-2s animate__slower animate__backInUp" href="/menu">منو</a></nuxt-link>
                         </li>
                         <li class="nav-item"  :class="{active: $route.path==='/aboutUs'}">
-                           <nuxt-link to="/aboutUs"><a class="nav-link" href="about.html">درباره ما</a></nuxt-link>
+                           <nuxt-link to="/aboutUs"><a class="nav-link animate__animated animate__delay-3s animate__slower animate__backInUp" href="about.html">درباره ما</a></nuxt-link>
                         </li>
                         <li class="nav-item" :class="{active: $route.path==='/contactUs'}">
-                            <nuxt-link to="/contactUs"><a class="nav-link" href="contact.html">تماس باما</a></nuxt-link> 
+                            <nuxt-link to="/contactUs"><a class="nav-link animate__animated animate__delay-4s animate__slower animate__backInUp">تماس باما</a></nuxt-link> 
                         </li>
                     </ul>
                     <div class="user_option">

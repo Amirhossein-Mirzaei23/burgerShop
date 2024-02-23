@@ -3,8 +3,14 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css:['~/assets/css/main.css'],
+  css:['~/assets/css/main.css','animate.css/animate.min.css','~/assets/css/tailwind.css'],
   plugins:[],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
   runtimeConfig:{
     public:{
       apiBase:'http://localhost:8000/api'

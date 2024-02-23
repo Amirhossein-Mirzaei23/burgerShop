@@ -8,4 +8,4 @@ const NumberFormat=(number)=>{
 /// export{salePercent}
 
 
-export { NumberFormat }
+export { NumberFormat  }

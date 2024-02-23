@@ -1324,7 +1324,7 @@
   }
   
   @media (min-width: 1200px) {
-    .container {
+    .custom-container {
       max-width: 1170px;
     }
   }

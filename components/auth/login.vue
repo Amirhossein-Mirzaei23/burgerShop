@@ -1,5 +1,10 @@
 <template>
     <div class="card-body">
+        <div v-if="errors.length > 0" class="alert alert-danger">
+            <ul class="mb-0">
+                <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+            </ul>
+        </div>
         <div class="form_container">
             <form @submit.prevent="login">
                 <div class="mb-3">
@@ -17,11 +22,15 @@
 
 <script setup>
 
+const emit = defineEmits(['showCheckOtpForm'])
+
 
 const cellphone = ref(null)
 
 const errors = ref([]);
 const loading = ref(false);
+
+
 
 async function login() {
     if (cellphone.value == null) {
@@ -59,7 +68,6 @@ async function login() {
 }
 
 
-const emit=defineEmits(['showOtpFormEmit'])
 </script>
 
 <style lang="scss" scoped>
