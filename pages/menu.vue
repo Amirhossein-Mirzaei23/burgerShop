@@ -8,7 +8,7 @@
                     <div>
                         <label class="form-label">جستجو</label>
                         <div class="input-group mb-3">
-                            <input v-model="searchValue" type="text" class="form-control" placeholder="نام محصول ..."
+                            <input v-model="searchValue" type="text" class="form-control focus:translate-x-3 focus:scale-105 focus:shadow-xl focus:shadow-teal-400 duration-700 transition-all" placeholder="نام محصول ..."
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <button @click="currentHandelFilter({search:searchValue})" class="input-group-text" id="basic-addon2">
                                 <i class="bi bi-search"></i>
@@ -21,7 +21,7 @@
                             دسته بندی
                         </div>
                         <ul>
-                            <li v-for="(category,index) in categories.data" :key="index" class="my-2 cursor-pointer " 
+                            <li v-for="(category,index) in categories.data" :key="index" class="my-2 cursor-pointer hover:scale-95 duration-300 transition-all" 
                             @click="currentHandelFilter({category:category.id})" :class="{'filter-list-active': route.query.category ==category.id}">{{ category.name }}</li>
                       
                         </ul>
@@ -29,27 +29,27 @@
                     <hr>
                     <div>
                         <label class="form-label">مرتب سازی</label>
-                        <div class="form-check my-2">
+                        <div class="form-check my-2 ">
                             <input @click="currentHandelFilter({sortBy:'max'})" :checked="route.query.sortBy=='max'" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label cursor-pointer" for="flexRadioDefault1">
+                            <label class="form-check-label cursor-pointer hover:scale-95 hover:shadow-xl hover:px-2 hover:shadow-slate-700 rounded-b-lg duration-500 transition-all" for="flexRadioDefault1">
                                 بیشترین قیمت
                             </label>
                         </div>
                         <div class="form-check my-2">
                             <input @click="currentHandelFilter({sortBy:'min'})" :checked="route.query.sortBy=='min'" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label cursor-pointer" for="flexRadioDefault2">
+                            <label class="form-check-label cursor-pointer hover:scale-95 hover:shadow-xl hover:px-2 hover:shadow-slate-700 rounded-b-lg duration-500 transition-all" for="flexRadioDefault2">
                                 کمترین قیمت
                             </label>
                         </div>
                         <div class="form-check my-2">
                             <input @click="currentHandelFilter({sortBy:'bestseller'})" :checked="route.query.sortBy=='bestseller'" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                            <label  class="form-check-label cursor-pointer" for="flexRadioDefault3">
+                            <label  class="form-check-label cursor-pointer hover:scale-95 hover:shadow-xl hover:px-2 hover:shadow-slate-700 rounded-b-lg duration-500 transition-all" for="flexRadioDefault3">
                                 پرفروش ترین
                             </label>
                         </div>
                         <div class="form-check my-2">
                             <input  @click="currentHandelFilter({sortBy:'sale'})" :checked="route.query.sortBy=='sale'" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
-                            <label class="form-check-label cursor-pointer" for="flexRadioDefault4">
+                            <label class="form-check-label cursor-pointer hover:scale-95 hover:shadow-xl hover:px-2 hover:shadow-slate-700 rounded-b-lg duration-500 transition-all" for="flexRadioDefault4">
                                 با تخفیف
                             </label>
                         </div>

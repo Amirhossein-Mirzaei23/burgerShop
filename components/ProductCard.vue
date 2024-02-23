@@ -24,8 +24,8 @@
                        
                         <span>تومان</span>
                     </h6>
-                    <button @click="addToCart(props.product)" href="">
-                        <i class="bi bi-cart-fill text-white fs-5"></i>
+                    <button class="hover:scale-105 duration-500" @click="addToCart(props.product)" href="">
+                        <i class="bi bi-cart-fill hover:-rotate-12 hover:text-slate-700 transition-all duration-1000 fs-5"></i>
                     </button>
                 </div>
             </div>

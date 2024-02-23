@@ -9,7 +9,7 @@
             </div>
             <Tabs nav-class="filters_menu" nav-item-active-class="active" :options="{ disableScrollBehavior: true }">
              
-                <Tab v-for="(tabList,index) in Products.data.tabList" :key="index" :name="tabList">
+                <Tab class="bg-gray-400 bg-opacity-10 px-5 py-2 rounded-xl" v-for="(tabList,index) in Products.data.tabList" :key="index" :name="tabList">
                    {{ tabList }}
                    <div class="filters_content">
                     <div class="row grid">

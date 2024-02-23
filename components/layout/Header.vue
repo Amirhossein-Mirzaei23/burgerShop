@@ -32,15 +32,15 @@
                     </ul>
                     <div class="user_option">
                         <nuxt-link class="cart_link position-relative"  to="/cart">
-                            <i class="bi bi-cart-fill text-white fs-5"></i>
+                            <i class="bi bi-cart-fill text-white hover:-rotate-12 transition-all duration-1000 ease-in  fs-5 "></i>
                          <client-only>
                             <span class="position-absolute top-0 translate-middle badge rounded-pill">
                                 {{ countCartItem }}
                             </span>
                          </client-only>
                         </nuxt-link>
-                        <nuxt-link v-if="authUser"  to="/profile">
-                            <button href="login.html" class="btn-auth">
+                        <nuxt-link v-if="authUser"  to="/profile" class="hover:scale-95 duration-500 transition-all">
+                            <button class="btn-auth">
                              {{ authUser.name }}
                             </button>
                          </nuxt-link>
