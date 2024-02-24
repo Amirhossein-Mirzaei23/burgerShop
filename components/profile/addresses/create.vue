@@ -73,7 +73,7 @@
 </template>
 
 <script setup>
-
+///define form kit
 import { reset } from "@formkit/core"
 
 const props = defineProps(['provinces', 'cities'])
