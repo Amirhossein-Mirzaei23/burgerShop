@@ -12,16 +12,16 @@
                 <div class="form_container">
                     <form @submit.prevent="submit">
                         <div>
-                            <input v-model="formData.name" type="text" class="form-control" placeholder="نام و نام خانوادگی" />
+                            <input  @blur="blurAnimation"  @focus="focusAnimation" v-model="formData.name" type="text" class="form-control " placeholder="نام و نام خانوادگی" />
                         </div>
                         <div>
-                            <input v-model="formData.email" type="email" class="form-control" placeholder="ایمیل" />
+                            <input  @blur="blurAnimation"  @focus="focusAnimation" v-model="formData.email" type="email" class="form-control text-right" placeholder="ایمیل" />
                         </div>
                         <div>
-                            <input v-model="formData.subject" type="text" class="form-control" placeholder="موضوع پیام" />
+                            <input  @blur="blurAnimation"  @focus="focusAnimation" v-model="formData.subject" type="text" class="form-control" placeholder="موضوع پیام" />
                         </div>
                         <div>
-                            <textarea v-model="formData.text" rows="10" style="height: 100px" class="form-control"
+                            <textarea @blur="blurAnimation"  @focus="focusAnimation" v-model="formData.text" rows="10" style="height: 100px" class="form-control"
                                 placeholder="متن پیام"></textarea>
                         </div>
                         <div class="btn_box">
@@ -88,7 +88,26 @@ onMounted(()=>{
             .bindPopup('<b>Hello world!</b><br />I am a popup').openPopup();
         })
 
+////////// animations functions
+let target=null
+let id=ref([])
+function focusAnimation(event){
 
+  target=event.target
+  
+ target.classList.add('animate__animated')
+ target.classList.add('animate__flipInX')
+ target.classList.add('duration-1000')
+ target.classList.add('transition-all')
+}
+function blurAnimation(event){
+  target=event.target
+
+  target.classList.remove('animate__animated')
+  target.classList.remove(`animate__flipInX`)
+  target.classList.remove('duration-1000')
+  target.classList.remove('transition-all')
+}
 </script>
 
 <style lang="scss" scoped>

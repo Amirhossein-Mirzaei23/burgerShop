@@ -1,8 +1,9 @@
 <template>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+    <button class="btn btn-primary mb-3" data-bs-toggle="collapse" data-bs-target="#collapseExample"
         aria-expanded="false" aria-controls="collapseExample">
         ایجاد آدرس جدید
     </button>
+   
     <div class="collapse mt-3" id="collapseExample">
         <FormKit type="form" id="createAddress" @submit="create" #default="{ value }" :incomplete-message="false" :actions="false">
             <div class="card card-body">
@@ -12,8 +13,8 @@
                     </ul>
                 </div>
 
-                <div class="row g-4">
-                    <div class="col col-md-6">
+                <div class="row g-4 mb-3">
+                    <div class="col col-md-6 ">
                         <FormKit type="text" name="title" id="title" label="عنوان" label-class="form-label"
                             input-class="form-control" validation="required"
                             :validation-messages="{ required: 'فیلد عنوان الزامیست' }"
@@ -54,7 +55,7 @@
                         </FormKit>
                     </div>
 
-                    <div class="col col-md-12">
+                    <div class="col col-md-12 ">
                         <FormKit type="textarea" rows="5" name="address" id="address" label="آدرس"
                             label-class="form-label" input-class="form-control" validation="required"
                             :validation-messages="{ required: 'فیلد آدرس الزامیست' }"
@@ -62,9 +63,9 @@
                     </div>
                 </div>
                 <div>
-                    <FormKit type="submit" input-class="btn btn-primary mt-4">
+                    <FormKit type="submit" input-class="btn btn-primary bg-black hover:scale-95 hover:shadow-xl hover:shadow-black transition-all duration-500 mt-4">
                         ایجاد
-                        <div v-if="loading" class="spinner-border spinner-border-sm ms-2"></div>
+                        <div v-if="loading" class="spinner-border spinner-border-sm ms-2 opacity-70"></div>
                     </FormKit>
                 </div>
             </div>

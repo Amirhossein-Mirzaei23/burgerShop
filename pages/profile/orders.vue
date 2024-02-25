@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="order in data.orders" :key="order.id">
+                        <tr class=" duration-500 transition-all hover:bg-slate-600 hover:bg-opacity-15" v-for="order in data.orders" :key="order.id">
                             <th>{{ order.id }}</th>
                             <td>{{ order.address_title }}</td>
                             <td>{{ order.status }}</td>
@@ -35,7 +35,7 @@
                             <td>{{ NumberFormat(order.paying_amount) }} تومان</td>
                             <td>{{ order.created_at }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-primary bg-amber-400" data-bs-toggle="modal"
                                     :data-bs-target="`#modal-${order.id}`">
                                     محصولات
                                 </button>
@@ -46,7 +46,9 @@
                                                 <h6 class="modal-title">محصولات سفارش
                                                     شماره {{ order.id }}</h6>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                    aria-label="Close">
+                                                <i class="bi bi-x-lg"></i>
+                                                </button>
                                             </div>
                                             <div class="modal-body">
                                                 <table class="table align-middle">

@@ -1078,14 +1078,17 @@
   .btn {
     display: inline-block;
     padding: 8px 30px;
-    background-color: #ffbe33;
+    background-color: #f6b832;
     color: #ffffff;
     border-radius: 45px;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     border: none;
   }
-  
+  .bg-Button{
+    background-color: #d49611;
+    color: #fcfcfc;
+  }
   .btn:hover {
     background-color: #e69c00;
   }
@@ -1094,6 +1097,7 @@
     color: #fff;
     background-color: #ffbe33;
     border-color: #ffbe33;
+
   }
   
   .btn-dark,
@@ -1114,7 +1118,7 @@
     color: #fff;
     background-color: #ffbe33;
     border-color: #ffbe33;
-    box-shadow: 0 0 0 0.25rem rgb(252 208 59 / 50%);
+    
   }
   
   .form-control:focus {

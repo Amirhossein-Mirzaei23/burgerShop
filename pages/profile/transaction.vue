@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="transaction in data.transactions" :key="transaction.id">
+                        <tr class="hover:bg-slate-500 hover:bg-opacity-15 hover:scale-95 duration-500 transition-all" v-for="transaction in data.transactions" :key="transaction.id">
                             <th>{{ transaction.id }}</th>
                             <td>{{ NumberFormat(transaction.amount) }} تومان</td>
                             <td>

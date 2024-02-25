@@ -1,13 +1,13 @@
 <template>
     <FormKit type="form" @submit="edit" #default="{ value }" :incomplete-message="false" :actions="false">
-        <div class="card card-body">
+        <div class="card card-body mb-6">
             <div v-if="errors.length > 0" class="alert alert-danger">
                 <ul class="mb-0">
                     <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
                 </ul>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-4  mb-3">
                 <div class="col col-md-6">
                     <FormKit type="text" name="title" id="title" label="عنوان" label-class="form-label"
                         input-class="form-control" validation="required"
@@ -51,7 +51,7 @@
                     </div>
                 </ClientOnly>
 
-                <div class="col col-md-12">
+                <div class="col col-md-12 text-rose-500">
                     <FormKit type="textarea" rows="5" name="address" id="address" label="آدرس" label-class="form-label"
                         input-class="form-control" validation="required"
                         :validation-messages="{ required: 'فیلد آدرس الزامیست' }" messages-class="form-text text-danger"
@@ -59,9 +59,9 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between mt-4">
-                <FormKit type="submit" input-class="btn btn-primary">
+                <FormKit type="submit" input-class="px-4 py-2 rounded-xl bg-black text-white duration-500 transition-all hover:scale-95 hover:shadow-xl hover:shadow-black">
                     ویرایش
-                    <div v-if="loading" class="spinner-border spinner-border-sm ms-2"></div>
+                    <div v-if="loading" class="spinner-border spinner-border-sm ms-2 "></div>
                 </FormKit>
                 <ProfileAddressesDelete :addressId="props.address.id"/>
             </div>

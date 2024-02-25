@@ -3,7 +3,7 @@ export default {
   content: [
     
   
-      "./components/**.{js,vue,ts}",
+      "./components/**/**/**.{js,vue,ts}",
       "./layouts/**/*.vue",
       "./pages/**/*.vue",
       "./plugins/**/*.{js,ts}",
@@ -15,7 +15,12 @@ export default {
   ],
   blocklist: [
     'grid',
-    'container'
+    'container',
+    'collapse' ,
+    'mt-3',
+    'g-4',
+    
+
   ],
   theme: {
     extend: {},

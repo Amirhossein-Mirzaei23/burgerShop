@@ -4,7 +4,7 @@
         <div class="custom-container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
                 <a class="navbar-brand">
-                    <span class="mr-5 bg-slate-50">
+                    <span class="mr-5">
                         fOOd Bar
                     </span>
                 </a>

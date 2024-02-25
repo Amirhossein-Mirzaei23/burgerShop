@@ -32,9 +32,9 @@
                     <input type="text" disabled class="form-control" :value="user.cellphone">
                     
                 </div>
-                    <FormKit type="submit" input-class="btn btn-primary mt-4">
+                    <FormKit type="submit" input-class="btn btn-primary mt-4 bg-amber-500 duration-500 transition-all hover:scale-105 hover:bg-amber-400 hover:shadow-2xl hover:shadow-zinc-950" >
                     ویرایش
-                    <div v-if="loading" class="spinner-border spinner-border-sm ms-2"></div>
+                    <div v-if="loading" class="spinner-border spinner-border-sm ms-2 shado"></div>
                     </FormKit>
                 </div>
              </FormKit>
