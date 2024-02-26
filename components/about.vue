@@ -22,9 +22,9 @@
                             شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها
                             شناخت
                         </p>
-                        <a href="">
+                        <NuxtLink to="/aboutUs"><button class=" hover:shadow-xl p-1  hover:shadow-teal-800 duration-500 transition-all">
                             مشاهده بیشتر
-                        </a>
+                        </button></NuxtLink>
                     </div>
                 </div>
             </div>
