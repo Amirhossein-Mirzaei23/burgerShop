@@ -1,6 +1,6 @@
 <template>
     <div class="vh-70">
-        <!-- a div to show erorrs--->
+        <!-- a div to show erorrs---->
         <div v-if="errors.length > 0" class="alert alert-danger">
             <ul class="mb-0">
                 <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
