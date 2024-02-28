@@ -72,7 +72,7 @@
 
 <script setup>
 
-
+//// define props of user addresses info
 const props = defineProps(['address', 'provinces', 'cities'])
 const cityEl = ref(null);
 const errors = ref([]);
