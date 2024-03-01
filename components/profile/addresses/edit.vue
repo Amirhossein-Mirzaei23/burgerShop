@@ -1,4 +1,5 @@
 <template>
+    <!---use FormKit to store and validation inputs value--->
     <FormKit type="form" @submit="edit" #default="{ value }" :incomplete-message="false" :actions="false">
         <div class="card card-body mb-6">
             <div v-if="errors.length > 0" class="alert alert-danger">
@@ -61,6 +62,7 @@
             <div class="d-flex justify-content-between mt-4">
                 <FormKit type="submit" input-class="px-4 py-2 rounded-xl bg-black text-white duration-500 transition-all hover:scale-95 hover:shadow-xl hover:shadow-black">
                     ویرایش
+                    <!---loader--->
                     <div v-if="loading" class="spinner-border spinner-border-sm ms-2 "></div>
                 </FormKit>
                 <ProfileAddressesDelete :addressId="props.address.id"/>
@@ -72,33 +74,38 @@
 
 <script setup>
 
-//// define props of user addresses info
+//// define props for user addresses info
 const props = defineProps(['address', 'provinces', 'cities'])
+/// create a variable to store the cites
 const cityEl = ref(null);
+/// create a variable for catch and store errors
 const errors = ref([]);
+/// create a variable to for loader postion
 const loading = ref(false);
 
-
+/// a function to change cities when province changed
 function changeProvince(el) {
     cityEl.value.node.input(props.cities.find((item) => item.province_id == el.target.value).id)
 }
-
+/// a function for send and edit data in server side
 async function edit(formData) {
-    console.log(formData);
-
+  
     try {
+        /// enablae loader
         loading.value = true;
         errors.value = [];
-
+/// send new data to edit user addresses data in server side
         await $fetch('/api/profile/address/edit', {
             method: 'POST',
             body: { ...formData, address_id: props.address.id }
         })
-
+/// create a tostr to show success massage 
         toastr.success("ویرایش آدرس باموفقیت انجام شد");
     } catch (error) {
+        ///define a new value for errors varible if err exist
         errors.value = Object.values(error.data.data.message).flat();
     } finally {
+        /// disablae loader
         loading.value = false;
     }
 }

@@ -4,7 +4,8 @@
         ایجاد آدرس جدید
     </button>
    
-    <div class="collapse mt-3" id="collapseExample">
+<div class="collapse mt-3" id="collapseExample">
+    <!---use FormKit to store and validation inputs value--->
         <FormKit type="form" id="createAddress" @submit="create" #default="{ value }" :incomplete-message="false" :actions="false">
             <div class="card card-body">
                 <div v-if="errors.length > 0" class="alert alert-danger">
@@ -65,6 +66,7 @@
                 <div>
                     <FormKit type="submit" input-class="btn btn-primary bg-black hover:scale-95 hover:shadow-xl hover:shadow-black transition-all duration-500 mt-4">
                         ایجاد
+                         <!---loader--->
                         <div v-if="loading" class="spinner-border spinner-border-sm ms-2 opacity-70"></div>
                     </FormKit>
                 </div>
@@ -74,38 +76,42 @@
 </template>
 
 <script setup>
-///define form kit
+///define FormKit 
 import { reset } from "@formkit/core"
-
+/// define props
 const props = defineProps(['provinces', 'cities'])
+/// create a variable to store the cites
 const cityEl = ref(null);
+/// create a variable for catch and store errors
 const errors = ref([]);
+/// create a variable to for loader postion
 const loading = ref(false);
 
-
+/// a function to change cities when province changed
 function changeProvince(el) {
     cityEl.value.node.input(props.cities.find((item) => item.province_id == el.target.value).id)
 }
-
+/// a function to send new data into the server side
 async function create(formData) {
     console.log(formData);
 
     try {
-       // loading.value = true;
+        loading.value = true;
       //  errors.value = [];
-
+/// send new data to create a new addresses in the server side
         await $fetch('/api/profile/create', {
             method: 'POST',
             body: formData
         })
-
+/// use reset method to clear all input value of FormKit
         reset('createAddress')
+/// create a tostr to show success massage 
         toastr.success("ایجاد آدرس باموفقیت انجام شد");
     } catch (error) {
-    //    errors.value = Object.values(error.data.data.message).flat();
+//    errors.value = Object.values(error.data.data.message).flat();
     console.log(error);
     } finally {
-      //  loading.value = false;
+//  loading.value = false;
     }
 }
 

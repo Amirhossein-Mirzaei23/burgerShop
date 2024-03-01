@@ -7,6 +7,7 @@
                     منو محصولات
                 </h2>
             </div>
+        <!--- use tabs component --->
             <Tabs nav-class="filters_menu" nav-item-active-class="active" :options="{ disableScrollBehavior: true }">
              
                 <Tab class="bg-gray-400 bg-opacity-10 px-5 py-2 rounded-xl" v-for="(tabList,index) in Products.data.tabList" :key="index" :name="tabList">
@@ -35,10 +36,10 @@
   import {Tabs, Tab} from 'vue3-tabs-component';
 
 
-
+/// define api root
 const {public:{apiBase}}=useRuntimeConfig();
+// get product tabs data from server side
 const {data:Products, error}= await useFetch(`${apiBase}/products/products-tabs`)
- console.log(Products._rawValue);
 
 </script>
 

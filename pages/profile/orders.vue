@@ -1,8 +1,9 @@
 <template>
+    <!--- loader --->
     <div v-if="pending" class="d-flex justify-content-center align-items-center h-100">
         <div class="spinner-border"></div>
     </div>
-
+<!---create a template to show when no orders is exist--->
     <template v-else>
         <div v-if="data.orders.length == 0" class="d-flex justify-content-center align-items-center h-100">
             <h5>سفارشی یافت نشده !</h5>
@@ -32,6 +33,7 @@
                                     {{ order.payment_status }}
                                 </span>
                             </td>
+<!-- use utils as numberFormat --->
                             <td>{{ NumberFormat(order.paying_amount) }} تومان</td>
                             <td>{{ order.created_at }}</td>
                             <td>
@@ -102,15 +104,17 @@
 </template>
 
 <script setup>
+// create avaribkae to store pages value
 const page = ref(0);
-
+// get data of a current page
 const { data, refresh, pending } = await useFetch(() => '/api/profile/orders', {
     query: { page },
     headers: useRequestHeaders(['cookie'])
 })
-
+/// a function to manage page value
 function paginate(number) {
     page.value = number;
+// refresh page to refresh data after changing page value
     refresh()
 }
 </script>

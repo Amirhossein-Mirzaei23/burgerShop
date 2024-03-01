@@ -44,30 +44,40 @@
 </template>
 
 <script setup>
+
+
+// use leaflet for creating a map box
 const {$leaflet}=useNuxtApp();
 
-
+// store input data as reactive varibles
 const formData=reactive({
     name:'',
     email:'',
     subject:'',
     text:""
 });
+
+/// dfine api root
 const {public:{apiBase}}=useRuntimeConfig();
+
+// submit form function
 async function submit(){
 try {
+    // send form input value to the server side
     const data= await $fetch(`${apiBase}/contact-us`,{
         method:'POST',
         body:formData
     })
 } catch (error) {
+    ////cath error of CRUD process
     const errs=Object.values(error.data.message)
     errs.forEach(err=>{
+        // create a toastr for showin err to the user
         toastr.error(err)
-     
     })
 }
 }
+
 ////map script
 onMounted(()=>{
     let map = $leaflet.map('map').setView([35.700105, 51.400394], 14);
@@ -89,20 +99,27 @@ onMounted(()=>{
         })
 
 ////////// animations functions
+///
 let target=null
-let id=ref([])
-function focusAnimation(event){
 
+let id=ref([])
+/// create a function to handel focus animtion of all inputs
+function focusAnimation(event){
+// define event target(input)
   target=event.target
-  
+///add new animate.css animation class 
  target.classList.add('animate__animated')
  target.classList.add('animate__flipInX')
  target.classList.add('duration-1000')
  target.classList.add('transition-all')
 }
-function blurAnimation(event){
-  target=event.target
 
+/// create a function to handel blur animtion of all inputs
+
+function blurAnimation(event){
+// define event target(input)
+  target=event.target
+///remove animate.css animation class to prepare the targets for new animation classes
   target.classList.remove('animate__animated')
   target.classList.remove(`animate__flipInX`)
   target.classList.remove('duration-1000')
