@@ -36,7 +36,7 @@ const otp = ref(null)
 const errors = ref(null);
 /// loader handeler
 const loading = ref(false);
-/// use Auth user composable to manage and hold user as login user 
+//// use Auth user composable to manage and hold user as login user 
 const {authUser}=useAuth()
 // a function for sending OTP code to the server side
 async function checkOtp() {
