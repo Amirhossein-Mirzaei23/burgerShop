@@ -32,9 +32,9 @@
 
 ////create a variable to store login input value
 const otp = ref(null)
-/// create a varible to manage errors
+//// create a varible to manage errors
 const errors = ref(null);
-/// loader handeler
+//// loader handeler
 const loading = ref(false);
 //// use Auth user composable to manage and hold user as login user 
 const {authUser}=useAuth()
