@@ -40,12 +40,13 @@ const loading = ref(false);
 const {authUser}=useAuth()
 // a function for sending OTP code to the server side
 async function checkOtp() {
+// check input value
     if (otp.value == null) {
         toastr.warning(' ورود کد تایید الزامی است ')
     return
        
     }
-
+// check otp code patern
     const pattern = /^[0-9]{6}$/;
     if (!pattern.test(otp.value)) {
         toastr.error(' فرمت کد ورودی معتبر نمیباشد')
@@ -53,9 +54,10 @@ async function checkOtp() {
     }
 
     try {
+// enbale loader
         loading.value = true;
         errors.value = null;
-
+/// check otp code with the server
         const data = await $fetch('/api/auth/checkOtp', {
             method: 'POST',
             body: { otp: otp.value }
@@ -71,6 +73,7 @@ async function checkOtp() {
     } finally {
        // console.log(data);
        // toastr.success('با موفقیت وارد شدید')
+       // disablae loader
         loading.value = false;
     }
 
