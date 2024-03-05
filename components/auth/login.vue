@@ -1,5 +1,6 @@
 <template>
     <div class="card-body">
+        <!-- a component to handel and show error massage to the user--->
         <div v-if="errors.length > 0" class="alert alert-danger">
             <ul class="mb-0">
                 <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
