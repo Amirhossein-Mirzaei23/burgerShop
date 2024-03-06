@@ -19,9 +19,11 @@
 </template>
 
 <script setup>
-
+/// define adderss button emit
 const emit = defineEmits(['setAddressId']);
 
+
+// get addresses from data
 const {data:addresses}= await useFetch(`api/cart/addresses`)
 
 </script>
