@@ -23,7 +23,7 @@
 const emit = defineEmits(['setAddressId']);
 
 
-// get addresses from data
+//// get addresses from data
 const {data:addresses}= await useFetch(`api/cart/addresses`)
 
 </script>
