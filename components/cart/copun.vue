@@ -7,18 +7,23 @@
 </template>
 
 <script setup>
-
+/// define coupons from database
 const props=defineProps(['coupon'])
-
+// get coupon input value
 const code=ref(null)
+/// store loader position in variable
 const loading = ref(false);
+/// check coupon input value with database
 async function checkCopun(){
+
+// create a validtion for coupon input 
     if (code.value === '' || code.value === null) {
         toastr.error('وارد کردن کد تخفیف الزامی است')
         return;
     }
-
+// validate code woth dataBase
     try {
+         ///enable loader
         loading.value = true;
 
         const data = await $fetch('/api/cart/checkCoupon', {
@@ -28,10 +33,12 @@ async function checkCopun(){
 
         toastr.success('کد تخفیف شما اعمال شد');
         props.coupon.code=code.value
+
         props.coupon.percent=data.percentage
     } catch (error) {
         toastr.error(Object.values(error.data.data.message).flat().toString())
     } finally {
+        ///disable loader
         loading.value = false;
     }
 }
