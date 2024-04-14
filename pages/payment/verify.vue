@@ -57,7 +57,7 @@ const route = useRoute()
 const { public: { apiBase } } = useRuntimeConfig();
 const errors = ref([]);
 const payment = ref(null);
-
+///  post user data
 if (process.client) {
     try {
         const data = await $fetch(`${apiBase}/payment/verify`, {
