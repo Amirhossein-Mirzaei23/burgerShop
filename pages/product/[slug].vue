@@ -92,14 +92,14 @@ import {useCartStore} from '.././store/cart.js'
 const cart=useCartStore()
 
 const route=useRoute()
-
+// define api base
 const {public:{apiBase}}=useRuntimeConfig();
 
-
+// get data fliterd by every product id witch mine from url
 const {data:product}=await useFetch(`${apiBase}/products/${route.params.slug}`)
 
 const {data:randomProduct}=await useFetch(`${apiBase}/random-products?count=4`)
-
+// define a varible to store number of a one product
 const quantity = ref(1);
 
 function addToCart(product){
